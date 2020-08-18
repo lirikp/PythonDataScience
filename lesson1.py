@@ -63,6 +63,6 @@ authors_stat = pd.DataFrame(columns=['author_name','min_price', 'max_price', 'me
 for idx, row in authors.iterrows():
     filter_author = authors_for_for[authors_for_for['author_id'].isin([row.author_id])]
     tmp = pd.DataFrame([[row.author_name, filter_author['price'].values.min(), filter_author['price'].values.max(), filter_author['price'].values.mean()]],columns=['author_name','min_price', 'max_price', 'mean_price'])
-    authors_stat.append(other=tmp, ignore_index=True)
+    authors_stat = authors_stat.append(other=tmp, ignore_index=True)
 
 print(authors_stat)
